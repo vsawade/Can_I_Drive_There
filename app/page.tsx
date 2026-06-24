@@ -2,6 +2,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { DrivingForm } from "@/components/driving-form"
 import { TrustSection } from "@/components/trust-section"
+import { PopularRoutes } from "@/components/popular-routes"
 import { DisclaimerBanner } from "@/components/disclaimer-banner"
 
 export default function HomePage() {
@@ -27,6 +28,9 @@ export default function HomePage() {
 
         {/* Trust Section */}
         <TrustSection />
+
+        {/* Popular Routes */}
+        <PopularRoutes />
 
         {/* Disclaimer Section */}
         <section className="py-8">

@@ -1,0 +1,38 @@
+[
+  {
+    "ruleKey": "US-JP-tourist",
+    "states": ["FL", "TX", "IL", "MA", "VA"],
+    "additionalDocuments": [
+      {
+        "type": "International Driving Permit (IDP)",
+        "required": true,
+        "notes": "Required in your state before driving abroad",
+        "ifMissing": "Your home state may not permit driving internationally without an IDP"
+      }
+    ],
+    "additionalNotes": [
+      "Your US state requires an IDP for international driving — obtain one from AAA or AATA before departure."
+    ]
+  },
+  {
+    "ruleKey": "US-US-tourist",
+    "states": ["*"],
+    "additionalDocuments": [],
+    "additionalNotes": [
+      "Requirements vary significantly by US state. Some states require an IDP alongside a foreign license."
+    ]
+  },
+  {
+    "ruleKey": "US-MX-tourist",
+    "states": ["*"],
+    "additionalDocuments": [
+      {
+        "type": "Mexican Auto Insurance",
+        "required": true,
+        "notes": "Mandatory — US policies do not cover Mexico",
+        "ifMissing": "You may be detained, fined, or held liable for all accident costs"
+      }
+    ],
+    "additionalNotes": []
+  }
+]

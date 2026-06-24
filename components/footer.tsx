@@ -21,6 +21,12 @@ export function Footer() {
             >
               Sources
             </Link>
+            <Link
+              href="/drive/from/us"
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Browse routes
+            </Link>
           </nav>
         </div>
         <p className="mt-4 text-center text-xs text-muted-foreground">

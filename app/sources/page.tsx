@@ -176,8 +176,9 @@ export default function SourcesPage() {
           <div className="mt-8 rounded-lg bg-muted/30 p-6 text-center">
             <h2 className="mb-2 text-lg font-semibold text-foreground">Missing a Source?</h2>
             <p className="text-muted-foreground">
-              If you know of an official source that should be included here, or if you notice 
-              outdated information, please let us know so we can improve our database.
+              If you know of an official source that should be included here, or if you notice
+              outdated information, use the &ldquo;Report outdated info&rdquo; button on any results
+              page so we can review and update our database.
             </p>
           </div>
         </div>

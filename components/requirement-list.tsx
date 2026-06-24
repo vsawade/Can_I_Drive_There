@@ -1,4 +1,4 @@
-import { Check, X, Info } from "lucide-react"
+import { Check, X, Info, AlertTriangle } from "lucide-react"
 import type { RequiredDocument } from "@/lib/types"
 import {
   Tooltip,
@@ -9,9 +9,10 @@ import {
 
 interface RequirementListProps {
   documents: RequiredDocument[]
+  showConsequences?: boolean
 }
 
-export function RequirementList({ documents }: RequirementListProps) {
+export function RequirementList({ documents, showConsequences = true }: RequirementListProps) {
   return (
     <TooltipProvider>
       <ul className="space-y-3">
@@ -34,7 +35,7 @@ export function RequirementList({ documents }: RequirementListProps) {
               )}
             </div>
             <div className="flex-1">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span
                   className={`font-medium ${
                     doc.required ? "text-foreground" : "text-muted-foreground"
@@ -64,6 +65,12 @@ export function RequirementList({ documents }: RequirementListProps) {
               </div>
               {doc.notes && (
                 <p className="mt-1 text-sm text-muted-foreground">{doc.notes}</p>
+              )}
+              {showConsequences && doc.ifMissing && (
+                <div className="mt-2 flex items-start gap-2 rounded-md bg-destructive/5 px-2 py-1.5 text-sm text-destructive">
+                  <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                  <span>If missing: {doc.ifMissing}</span>
+                </div>
               )}
             </div>
           </li>

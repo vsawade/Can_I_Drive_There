@@ -127,3 +127,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  .rounded-lg,
+  .rounded-xl,
+  .rounded-md {
+    break-inside: avoid;
+  }
+}

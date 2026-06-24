@@ -1,29 +1,32 @@
+import { getCoverageStats } from "@/lib/data"
 import { CheckCircle, Clock, Globe, Shield } from "lucide-react"
 
-const features = [
-  {
-    icon: Globe,
-    title: "Global Coverage",
-    description: "Information for popular travel destinations worldwide",
-  },
-  {
-    icon: Shield,
-    title: "Source-Backed",
-    description: "Data sourced from official government authorities",
-  },
-  {
-    icon: Clock,
-    title: "Regularly Updated",
-    description: "Requirements reviewed and updated frequently",
-  },
-  {
-    icon: CheckCircle,
-    title: "Clear Checklists",
-    description: "Easy-to-follow document requirements",
-  },
-]
-
 export function TrustSection() {
+  const { uniquePairs, totalCountries, coveragePercent } = getCoverageStats()
+
+  const features = [
+    {
+      icon: Globe,
+      title: "Growing Coverage",
+      description: `${uniquePairs} verified country pairs across ${totalCountries} countries (${coveragePercent}% of all combinations)`,
+    },
+    {
+      icon: Shield,
+      title: "Source-Backed",
+      description: "Every verified route links to official government or embassy sources",
+    },
+    {
+      icon: Clock,
+      title: "Freshness Warnings",
+      description: "We flag data older than 6 months so you know when to double-check",
+    },
+    {
+      icon: CheckCircle,
+      title: "No Guessing",
+      description: "If we don't have data for a route, we say so — we won't invent a checklist",
+    },
+  ]
+
   return (
     <section className="py-12">
       <div className="mx-auto max-w-5xl px-4">
