@@ -1,3 +1,4 @@
+
 import type { Country, DrivingRule, StateOverride } from "./types"
 import countriesData from "@/data/countries.json"
 import stateOverridesData from "@/data/state-overrides.json"
@@ -640,6 +641,284 @@ const rawDrivingRules: DrivingRule[] = [
     ],
     lastUpdated: "2025-10-01",
   },
+  // Expanded high-traffic routes (draft — pending human verification)
+  {
+    originCountry: "US",
+    destinationCountry: "PT",
+    travelType: "tourist",
+    maxStayDays: 185,
+    status: "Allowed",
+    documents: [
+      { type: "Valid US Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Recommended; rental agencies may require it" },
+      { type: "Proof of Insurance", required: true },
+    ],
+    notes: [
+      "Drive on the right side of the road",
+      "US license valid for up to 185 days as a visitor",
+      "Toll roads (Portagens) are common",
+    ],
+    sources: [
+      { authorityName: "U.S. Embassy in Portugal", url: "https://pt.usembassy.gov/", verifiedAt: "2026-06-26" },
+      { authorityName: "Portuguese Mobility Authority (IMT)", url: "https://www.imt-ip.pt/", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "US",
+    destinationCountry: "GR",
+    travelType: "tourist",
+    maxStayDays: 180,
+    status: "Conditionally Allowed",
+    documents: [
+      { type: "Valid US Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: true, notes: "Required alongside US license" },
+      { type: "Proof of Insurance", required: true },
+    ],
+    notes: [
+      "Drive on the right side of the road",
+      "Greece requires an IDP in addition to a foreign license",
+      "Parking restrictions are strict in Athens and islands",
+    ],
+    sources: [
+      { authorityName: "U.S. Embassy in Greece", url: "https://gr.usembassy.gov/", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "US",
+    destinationCountry: "NL",
+    travelType: "tourist",
+    maxStayDays: 180,
+    status: "Allowed",
+    documents: [
+      { type: "Valid US Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Recommended for rentals" },
+      { type: "Proof of Insurance", required: true },
+    ],
+    notes: [
+      "Drive on the right side of the road",
+      "Cycling infrastructure is extensive — watch for bikes",
+      "Environmental zones may apply in some cities",
+    ],
+    sources: [
+      { authorityName: "Government of the Netherlands", url: "https://www.government.nl/", verifiedAt: "2026-06-26" },
+      { authorityName: "RDW (Dutch Vehicle Authority)", url: "https://www.rdw.nl/", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "US",
+    destinationCountry: "CH",
+    travelType: "tourist",
+    maxStayDays: 365,
+    status: "Conditionally Allowed",
+    documents: [
+      { type: "Valid US Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: true, notes: "Required for non-EU licenses" },
+      { type: "Motorway Vignette", required: true, notes: "Required for Swiss motorways" },
+      { type: "Proof of Insurance", required: true },
+    ],
+    notes: [
+      "Drive on the right side of the road",
+      "Strict speed enforcement with cameras",
+      "Winter tire requirements in mountain regions",
+    ],
+    sources: [
+      { authorityName: "Swiss Federal Roads Office (FEDRO)", url: "https://www.astra.admin.ch/", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "US",
+    destinationCountry: "IE",
+    travelType: "tourist",
+    maxStayDays: 365,
+    status: "Allowed",
+    documents: [
+      { type: "Valid US Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Recommended but not legally required for short stays" },
+      { type: "Proof of Insurance", required: true },
+    ],
+    notes: [
+      "Drive on the left side of the road",
+      "Valid for up to 12 months as a visitor",
+      "Narrow rural roads — drive carefully",
+    ],
+    sources: [
+      { authorityName: "National Driver Licence Service (Ireland)", url: "https://www.ndls.ie/", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "US",
+    destinationCountry: "NZ",
+    travelType: "tourist",
+    maxStayDays: 365,
+    status: "Allowed",
+    documents: [
+      { type: "Valid US Driver's License", required: true },
+      { type: "Passport with NZeTA", required: true },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Recommended; license must be in English" },
+      { type: "Proof of Insurance", required: true },
+    ],
+    notes: [
+      "Drive on the left side of the road",
+      "Valid for up to 12 months from arrival",
+      "Rural roads can be narrow and winding",
+    ],
+    sources: [
+      { authorityName: "NZ Transport Agency (Waka Kotahi)", url: "https://www.nzta.govt.nz/", verifiedAt: "2026-06-26" },
+      { authorityName: "U.S. State Department - New Zealand", url: "https://travel.state.gov/", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "US",
+    destinationCountry: "KR",
+    travelType: "tourist",
+    maxStayDays: 365,
+    status: "Conditionally Allowed",
+    documents: [
+      { type: "Valid US Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: true, notes: "Must be 1949 Geneva Convention format" },
+      { type: "Proof of Insurance", required: true },
+    ],
+    notes: [
+      "Drive on the right side of the road",
+      "IDP required alongside US license",
+      "Strict DUI laws with severe penalties",
+    ],
+    sources: [
+      { authorityName: "Korean Road Traffic Authority (KoROAD)", url: "https://www.koroad.or.kr/", verifiedAt: "2026-06-26" },
+      { authorityName: "U.S. Embassy in South Korea", url: "https://kr.usembassy.gov/", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "US",
+    destinationCountry: "TH",
+    travelType: "tourist",
+    maxStayDays: 90,
+    status: "Conditionally Allowed",
+    documents: [
+      { type: "Valid US Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: true, notes: "Required alongside US license" },
+      { type: "Proof of Insurance", required: true },
+    ],
+    notes: [
+      "Drive on the left side of the road",
+      "IDP must be obtained before arrival in Thailand",
+      "Traffic can be chaotic in Bangkok",
+    ],
+    sources: [
+      { authorityName: "U.S. Embassy in Thailand", url: "https://th.usembassy.gov/", verifiedAt: "2026-06-26" },
+      { authorityName: "Royal Thai Police", url: "https://www.royalthaipolice.go.th/", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "GB",
+    destinationCountry: "NL",
+    travelType: "tourist",
+    maxStayDays: 90,
+    status: "Conditionally Allowed",
+    documents: [
+      { type: "Valid UK Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: true, notes: "Required for UK license holders since Brexit" },
+      { type: "GB Sticker", required: true },
+    ],
+    notes: [
+      "Drive on the right side of the road",
+      "IDP required for UK license holders visiting EU",
+      "Watch for cyclists — Netherlands is bike-heavy",
+    ],
+    sources: [
+      { authorityName: "RDW (Dutch Vehicle Authority)", url: "https://www.rdw.nl/", verifiedAt: "2026-06-26" },
+      { authorityName: "UK Government - Driving Abroad", url: "https://www.gov.uk/driving-abroad", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "GB",
+    destinationCountry: "PT",
+    travelType: "tourist",
+    maxStayDays: 90,
+    status: "Conditionally Allowed",
+    documents: [
+      { type: "Valid UK Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: true },
+      { type: "GB Sticker", required: true },
+      { type: "Proof of Insurance", required: true },
+    ],
+    notes: [
+      "Drive on the right side of the road",
+      "IDP required for UK license holders visiting EU",
+      "Toll roads common on highways",
+    ],
+    sources: [
+      { authorityName: "Portuguese Mobility Authority (IMT)", url: "https://www.imt-ip.pt/", verifiedAt: "2026-06-26" },
+      { authorityName: "UK Government - Driving Abroad", url: "https://www.gov.uk/driving-abroad", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "CA",
+    destinationCountry: "FR",
+    travelType: "tourist",
+    maxStayDays: 90,
+    status: "Allowed",
+    documents: [
+      { type: "Valid Canadian Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Recommended for rentals" },
+      { type: "Proof of Insurance", required: true },
+      { type: "Warning Triangle", required: true },
+      { type: "Reflective Vest", required: true },
+    ],
+    notes: [
+      "Drive on the right side of the road",
+      "Crit'Air emissions sticker required in some French cities",
+      "Canadian license accepted for short tourist stays",
+    ],
+    sources: [
+      { authorityName: "Government of Canada - Travel", url: "https://travel.gc.ca/", verifiedAt: "2026-06-26" },
+      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
+  {
+    originCountry: "AU",
+    destinationCountry: "NZ",
+    travelType: "tourist",
+    maxStayDays: 365,
+    status: "Allowed",
+    documents: [
+      { type: "Valid Australian Driver's License", required: true },
+      { type: "Passport", required: true },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Not required — Australian license valid in NZ" },
+      { type: "Proof of Insurance", required: true },
+    ],
+    notes: [
+      "Both countries drive on the left",
+      "Australian license valid for up to 12 months in New Zealand",
+      "Rural and mountain roads require caution",
+    ],
+    sources: [
+      { authorityName: "NZ Transport Agency (Waka Kotahi)", url: "https://www.nzta.govt.nz/", verifiedAt: "2026-06-26" },
+      { authorityName: "Australian Government - Smartraveller", url: "https://www.smartraveller.gov.au/", verifiedAt: "2026-06-26" },
+    ],
+    lastUpdated: "2026-06-26",
+  },
 ]
 
 export const drivingRules: DrivingRule[] = rawDrivingRules.map(normalizeRule)
@@ -750,7 +1029,11 @@ export const popularRoutes = [
   { origin: "US", destination: "FR", label: "US license in France" },
   { origin: "US", destination: "IT", label: "US license in Italy" },
   { origin: "US", destination: "MX", label: "US license in Mexico" },
+  { origin: "US", destination: "NZ", label: "US license in New Zealand" },
+  { origin: "US", destination: "PT", label: "US license in Portugal" },
+  { origin: "US", destination: "TH", label: "US license in Thailand" },
   { origin: "GB", destination: "FR", label: "UK license in France" },
+  { origin: "GB", destination: "NL", label: "UK license in Netherlands" },
   { origin: "CA", destination: "US", label: "Canadian license in the US" },
-  { origin: "AU", destination: "JP", label: "Australian license in Japan" },
+  { origin: "AU", destination: "NZ", label: "Australian license in New Zealand" },
 ]
