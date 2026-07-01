@@ -137,6 +137,14 @@ export interface TripReminderRequest {
   travelType: "tourist" | "business"
 }
 
+export interface StoredTripReminder extends TripReminderRequest {
+  id: string
+  reminderDate: string
+  createdAt: string
+  sentAt: string | null
+  lastError?: string | null
+}
+
 export interface RulesDatabase {
   countries: Country[]
   rules: DrivingRule[]

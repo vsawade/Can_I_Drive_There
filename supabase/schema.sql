@@ -37,17 +37,34 @@ create table if not exists trip_reminders (
   origin_country text not null,
   destination_country text not null,
   trip_date date not null,
+  reminder_date date not null default current_date,
   stay_length integer not null,
   travel_type text not null default 'tourist',
+  sent_at timestamptz,
+  last_error text,
   created_at timestamptz not null default now()
 );
 
+alter table trip_reminders add column if not exists reminder_date date;
+alter table trip_reminders add column if not exists sent_at timestamptz;
+alter table trip_reminders add column if not exists last_error text;
+update trip_reminders
+set reminder_date = greatest(trip_date - 3, current_date)
+where reminder_date is null;
+alter table trip_reminders alter column reminder_date set default current_date;
+alter table trip_reminders alter column reminder_date set not null;
+
 create index if not exists trip_reminders_trip_date_idx on trip_reminders (trip_date);
+create index if not exists trip_reminders_due_idx on trip_reminders (reminder_date, sent_at);
 
 -- Optional: enable RLS and deny public access (service role bypasses RLS)
 alter table outdated_reports enable row level security;
 alter table analytics_events enable row level security;
 alter table trip_reminders enable row level security;
+
+drop policy if exists "service role only" on outdated_reports;
+drop policy if exists "service role only" on analytics_events;
+drop policy if exists "service role only" on trip_reminders;
 
 create policy "service role only" on outdated_reports for all using (false);
 create policy "service role only" on analytics_events for all using (false);

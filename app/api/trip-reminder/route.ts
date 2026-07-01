@@ -7,6 +7,20 @@ import { withRateLimit } from "@/lib/rate-limit"
 import { sanitizeCountryCode, sanitizeEmail } from "@/lib/sanitize"
 import type { TripReminderRequest } from "@/lib/types"
 
+function toDateString(date: Date) {
+  return date.toISOString().split("T")[0]
+}
+
+function calculateReminderDate(tripDate: string) {
+  const trip = new Date(`${tripDate}T00:00:00.000Z`)
+  const reminder = new Date(trip)
+  reminder.setUTCDate(reminder.getUTCDate() - 3)
+
+  const today = new Date()
+  const todayUtc = new Date(Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate()))
+  return toDateString(reminder < todayUtc ? todayUtc : reminder)
+}
+
 export async function POST(request: Request) {
   const limited = withRateLimit(request, "trip-reminder", {
     limit: 3,
@@ -43,12 +57,14 @@ export async function POST(request: Request) {
     }
 
     const normalizedTravelType = travelType === "business" ? "business" : "tourist"
+    const reminderDate = calculateReminderDate(tripDate)
 
     await saveTripReminder({
       email,
       originCountry,
       destinationCountry,
       tripDate,
+      reminderDate,
       stayLength,
       travelType: normalizedTravelType,
     })
@@ -77,8 +93,9 @@ export async function POST(request: Request) {
     return NextResponse.json({
       success: true,
       emailSent: emailResult.sent,
+      reminderDate,
       message: emailResult.sent
-        ? "Reminder saved. Check your email for your checklist link."
+        ? "Reminder saved. Check your email for your checklist link. We will remind you again before your trip."
         : "Reminder saved. Email delivery is not configured — bookmark your checklist link.",
     })
   } catch {

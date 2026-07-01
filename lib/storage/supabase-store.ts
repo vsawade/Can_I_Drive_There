@@ -1,5 +1,5 @@
 import { getSupabaseAdmin } from "@/lib/supabase/server"
-import type { AnalyticsEvent, ReportStatus, StoredReport } from "@/lib/types"
+import type { AnalyticsEvent, ReportStatus, StoredReport, StoredTripReminder } from "@/lib/types"
 
 interface ReportRow {
   id: string
@@ -12,6 +12,20 @@ interface ReportRow {
   reported_at: string
 }
 
+interface TripReminderRow {
+  id: string
+  email: string
+  origin_country: string
+  destination_country: string
+  trip_date: string
+  reminder_date: string
+  stay_length: number
+  travel_type: "tourist" | "business"
+  created_at: string
+  sent_at: string | null
+  last_error: string | null
+}
+
 function mapReport(row: ReportRow): StoredReport {
   return {
     id: row.id,
@@ -22,6 +36,22 @@ function mapReport(row: ReportRow): StoredReport {
     sourceUrl: row.source_url,
     status: row.status,
     reportedAt: row.reported_at,
+  }
+}
+
+function mapTripReminder(row: TripReminderRow): StoredTripReminder {
+  return {
+    id: row.id,
+    email: row.email,
+    originCountry: row.origin_country,
+    destinationCountry: row.destination_country,
+    tripDate: row.trip_date,
+    reminderDate: row.reminder_date,
+    stayLength: row.stay_length,
+    travelType: row.travel_type,
+    createdAt: row.created_at,
+    sentAt: row.sent_at,
+    lastError: row.last_error,
   }
 }
 
@@ -156,18 +186,70 @@ export async function saveTripReminder(input: {
   originCountry: string
   destinationCountry: string
   tripDate: string
+  reminderDate: string
   stayLength: number
   travelType: string
-}): Promise<void> {
+}): Promise<StoredTripReminder> {
   const supabase = getSupabaseAdmin()
-  const { error } = await supabase.from("trip_reminders").insert({
-    email: input.email,
-    origin_country: input.originCountry,
-    destination_country: input.destinationCountry,
-    trip_date: input.tripDate,
-    stay_length: input.stayLength,
-    travel_type: input.travelType,
-  })
+  const { data, error } = await supabase
+    .from("trip_reminders")
+    .insert({
+      email: input.email,
+      origin_country: input.originCountry,
+      destination_country: input.destinationCountry,
+      trip_date: input.tripDate,
+      reminder_date: input.reminderDate,
+      stay_length: input.stayLength,
+      travel_type: input.travelType,
+      sent_at: null,
+      last_error: null,
+    })
+    .select()
+    .single()
+
+  if (error || !data) throw new Error(error?.message ?? "Failed to save reminder")
+
+  return mapTripReminder(data as TripReminderRow)
+}
+
+export async function listDueTripReminders(
+  today: string,
+  limit = 50
+): Promise<StoredTripReminder[]> {
+  const supabase = getSupabaseAdmin()
+  const { data, error } = await supabase
+    .from("trip_reminders")
+    .select("*")
+    .is("sent_at", null)
+    .lte("reminder_date", today)
+    .order("reminder_date", { ascending: true })
+    .limit(limit)
+
+  if (error) throw new Error(error.message)
+
+  return (data as TripReminderRow[]).map(mapTripReminder)
+}
+
+export async function markTripReminderSent(
+  id: string,
+  sentAt: string,
+  lastError: string | null = null
+): Promise<void> {
+  const supabase = getSupabaseAdmin()
+  const { error } = await supabase
+    .from("trip_reminders")
+    .update({ sent_at: sentAt, last_error: lastError })
+    .eq("id", id)
+
+  if (error) throw new Error(error.message)
+}
+
+export async function markTripReminderFailed(id: string, lastError: string): Promise<void> {
+  const supabase = getSupabaseAdmin()
+  const { error } = await supabase
+    .from("trip_reminders")
+    .update({ last_error: lastError })
+    .eq("id", id)
 
   if (error) throw new Error(error.message)
 }

@@ -1,6 +1,6 @@
 import { promises as fs } from "fs"
 import path from "path"
-import type { AnalyticsEvent, ReportStatus, StoredReport } from "@/lib/types"
+import type { AnalyticsEvent, ReportStatus, StoredReport, StoredTripReminder } from "@/lib/types"
 
 const DATA_DIR = path.join(process.cwd(), ".data")
 
@@ -119,10 +119,64 @@ export async function saveTripReminder(input: {
   originCountry: string
   destinationCountry: string
   tripDate: string
+  reminderDate: string
   stayLength: number
   travelType: string
-}): Promise<void> {
-  const reminders = await readJsonFile<typeof input[]>("reminders.json", [])
-  reminders.unshift({ ...input })
+}): Promise<StoredTripReminder> {
+  const reminders = await readJsonFile<StoredTripReminder[]>("reminders.json", [])
+  const reminder: StoredTripReminder = {
+    id: createId("reminder"),
+    email: input.email,
+    originCountry: input.originCountry,
+    destinationCountry: input.destinationCountry,
+    tripDate: input.tripDate,
+    reminderDate: input.reminderDate,
+    stayLength: input.stayLength,
+    travelType: input.travelType as StoredTripReminder["travelType"],
+    createdAt: new Date().toISOString(),
+    sentAt: null,
+    lastError: null,
+  }
+  reminders.unshift(reminder)
   await writeJsonFile("reminders.json", reminders.slice(0, 200))
+  return reminder
+}
+
+export async function listDueTripReminders(
+  today: string,
+  limit = 50
+): Promise<StoredTripReminder[]> {
+  const reminders = await readJsonFile<StoredTripReminder[]>("reminders.json", [])
+  return reminders
+    .filter((reminder) => !reminder.sentAt && reminder.reminderDate <= today)
+    .slice(0, limit)
+}
+
+export async function markTripReminderSent(
+  id: string,
+  sentAt: string,
+  lastError: string | null = null
+): Promise<void> {
+  const reminders = await readJsonFile<StoredTripReminder[]>("reminders.json", [])
+  const index = reminders.findIndex((reminder) => reminder.id === id)
+  if (index === -1) return
+
+  reminders[index] = {
+    ...reminders[index],
+    sentAt,
+    lastError,
+  }
+  await writeJsonFile("reminders.json", reminders)
+}
+
+export async function markTripReminderFailed(id: string, lastError: string): Promise<void> {
+  const reminders = await readJsonFile<StoredTripReminder[]>("reminders.json", [])
+  const index = reminders.findIndex((reminder) => reminder.id === id)
+  if (index === -1) return
+
+  reminders[index] = {
+    ...reminders[index],
+    lastError,
+  }
+  await writeJsonFile("reminders.json", reminders)
 }

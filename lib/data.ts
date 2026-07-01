@@ -27,9 +27,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Valid for up to 12 months from arrival",
     ],
     sources: [
-      { authorityName: "UK Government - DVLA", url: "https://www.gov.uk/driving-in-the-uk", verifiedAt: "2025-11-01" },
+      { authorityName: "UK Government - Driving in the UK", url: "https://www.gov.uk/driving-abroad", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -40,7 +40,7 @@ const rawDrivingRules: DrivingRule[] = [
     documents: [
       { type: "Valid US Driver's License", required: true },
       { type: "Passport", required: true },
-      { type: "International Driving Permit (IDP)", required: true, notes: "Required for stays over 6 months" },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Recommended for rentals; not legally required for tourist stays under 6 months" },
       { type: "Proof of Insurance", required: true },
     ],
     notes: [
@@ -49,9 +49,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Winter tires required in winter conditions",
     ],
     sources: [
-      { authorityName: "German Federal Ministry of Transport", url: "https://www.bmvi.de/", verifiedAt: "2025-11-01" },
+      { authorityName: "German Federal Ministry of Transport", url: "https://www.bmvi.de/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -72,9 +72,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Parking regulations strictly enforced",
     ],
     sources: [
-      { authorityName: "Japan Automobile Federation (JAF)", url: "https://english.jaf.or.jp/", verifiedAt: "2025-11-01" },
+      { authorityName: "Japan Automobile Federation (JAF)", url: "https://english.jaf.or.jp/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -95,9 +95,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Toll roads (cuotas) are common",
     ],
     sources: [
-      { authorityName: "US Embassy in Mexico", url: "https://mx.usembassy.gov/", verifiedAt: "2025-11-01" },
+      { authorityName: "US Embassy in Mexico", url: "https://mx.usembassy.gov/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   // UK to various countries
   {
@@ -109,8 +109,8 @@ const rawDrivingRules: DrivingRule[] = [
     documents: [
       { type: "Valid UK Driver's License", required: true },
       { type: "Passport", required: true },
-      { type: "International Driving Permit (IDP)", required: true, notes: "Required since Brexit for stays over 90 days" },
-      { type: "GB Sticker", required: true, notes: "UK registration plates must display GB identifier" },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Not required for standard UK plastic licences visiting the EU; may be needed for paper licences or licences from Gibraltar, Guernsey, Jersey, or Isle of Man" },
+      { type: "UK Sticker", required: true, notes: "Required unless your plate already shows UK with the Union flag; mandatory in Spain, Cyprus, and Malta" },
       { type: "Warning Triangle", required: true },
       { type: "Reflective Vest", required: true },
     ],
@@ -120,9 +120,10 @@ const rawDrivingRules: DrivingRule[] = [
       "Crit'Air sticker required for some cities",
     ],
     sources: [
-      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2025-11-01" },
+      { authorityName: "UK Government - Driving in the EU", url: "https://www.gov.uk/guidance/driving-in-the-eu", verifiedAt: "2026-06-30" },
+      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "GB",
@@ -144,9 +145,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Some cities have low emission zones",
     ],
     sources: [
-      { authorityName: "DGT - Spanish Traffic Authority", url: "https://www.dgt.es/", verifiedAt: "2025-11-01" },
+      { authorityName: "DGT - Spanish Traffic Authority", url: "https://www.dgt.es/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   // Germany to other countries
   {
@@ -167,9 +168,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Highway tolls apply",
     ],
     sources: [
-      { authorityName: "Italian Ministry of Transport", url: "https://www.mit.gov.it/", verifiedAt: "2025-11-01" },
+      { authorityName: "Italian Ministry of Transport", url: "https://www.mit.gov.it/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   // Australia to other countries
   {
@@ -189,9 +190,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Some states require IDP alongside license",
     ],
     sources: [
-      { authorityName: "US State Department", url: "https://travel.state.gov/", verifiedAt: "2025-11-01" },
+      { authorityName: "US State Department", url: "https://travel.state.gov/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "AU",
@@ -210,9 +211,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Japan has strict parking regulations",
     ],
     sources: [
-      { authorityName: "Japan Automobile Federation (JAF)", url: "https://english.jaf.or.jp/", verifiedAt: "2025-11-01" },
+      { authorityName: "Japan Automobile Federation (JAF)", url: "https://english.jaf.or.jp/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   // Canada to US (common route)
   {
@@ -233,9 +234,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Some states have specific requirements",
     ],
     sources: [
-      { authorityName: "US Customs and Border Protection", url: "https://www.cbp.gov/", verifiedAt: "2025-11-01" },
+      { authorityName: "US Customs and Border Protection", url: "https://www.cbp.gov/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   // UAE example
   {
@@ -256,9 +257,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Rental cars typically include basic insurance",
     ],
     sources: [
-      { authorityName: "UAE Ministry of Interior", url: "https://www.moi.gov.ae/", verifiedAt: "2025-11-01" },
+      { authorityName: "UAE Ministry of Interior", url: "https://www.moi.gov.ae/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   // Business travel example
   {
@@ -279,9 +280,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Verify rental policies for business use",
     ],
     sources: [
-      { authorityName: "German Embassy", url: "https://www.germany.info/", verifiedAt: "2025-11-01" },
+      { authorityName: "German Embassy", url: "https://www.germany.info/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   // High-traffic routes
   {
@@ -304,9 +305,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Blood alcohol limit is 0.05%",
     ],
     sources: [
-      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2025-11-01" },
+      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-11-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -326,9 +327,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Headlights must be on in tunnels",
     ],
     sources: [
-      { authorityName: "Italian Ministry of Transport", url: "https://www.mit.gov.it/", verifiedAt: "2025-10-15" },
+      { authorityName: "Italian Ministry of Transport", url: "https://www.mit.gov.it/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-15",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -350,9 +351,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Minimum driving age is 18",
     ],
     sources: [
-      { authorityName: "DGT - Spanish Traffic Authority", url: "https://www.dgt.es/", verifiedAt: "2025-10-20" },
+      { authorityName: "DGT - Spanish Traffic Authority", url: "https://www.dgt.es/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-20",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -372,9 +373,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Winter tire requirements in some provinces",
     ],
     sources: [
-      { authorityName: "Government of Canada - Travel", url: "https://travel.gc.ca/", verifiedAt: "2025-09-01" },
+      { authorityName: "Government of Canada - Travel", url: "https://travel.gc.ca/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-09-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -393,9 +394,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Some states require IDP in addition to US license",
     ],
     sources: [
-      { authorityName: "Australian Government - Smartraveller", url: "https://www.smartraveller.gov.au/", verifiedAt: "2025-10-01" },
+      { authorityName: "Australian Government - Smartraveller", url: "https://www.smartraveller.gov.au/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -415,9 +416,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Road conditions vary significantly by region",
     ],
     sources: [
-      { authorityName: "US Embassy in Brazil", url: "https://br.usembassy.gov/", verifiedAt: "2025-09-15" },
+      { authorityName: "US Embassy in Brazil", url: "https://br.usembassy.gov/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-09-15",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "GB",
@@ -428,8 +429,8 @@ const rawDrivingRules: DrivingRule[] = [
     documents: [
       { type: "Valid UK Driver's License", required: true },
       { type: "Passport", required: true },
-      { type: "International Driving Permit (IDP)", required: true, notes: "Required for UK license holders since Brexit" },
-      { type: "GB Sticker", required: true },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Not required for standard UK plastic licences visiting the EU" },
+      { type: "UK Sticker", required: true, notes: "Required unless your plate already shows UK with the Union flag" },
       { type: "Warning Triangle", required: true },
       { type: "First Aid Kit", required: true },
     ],
@@ -439,9 +440,10 @@ const rawDrivingRules: DrivingRule[] = [
       "Winter tires mandatory in winter conditions",
     ],
     sources: [
-      { authorityName: "German Federal Ministry of Transport", url: "https://www.bmvi.de/", verifiedAt: "2025-10-05" },
+      { authorityName: "UK Government - Driving in the EU", url: "https://www.gov.uk/guidance/driving-in-the-eu", verifiedAt: "2026-06-30" },
+      { authorityName: "German Federal Ministry of Transport", url: "https://www.bmvi.de/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-05",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "GB",
@@ -452,18 +454,18 @@ const rawDrivingRules: DrivingRule[] = [
     documents: [
       { type: "Valid UK Driver's License", required: true },
       { type: "Passport", required: true },
-      { type: "International Driving Permit (IDP)", required: true },
-      { type: "GB Sticker", required: true },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Not required for standard UK plastic licences visiting the EU" },
+      { type: "UK Sticker", required: true, notes: "Required unless your plate already shows UK with the Union flag" },
     ],
     notes: [
       "Drive on the right side of the road",
       "ZTL zones in city centers require permits",
-      "IDP required for UK license holders",
     ],
     sources: [
-      { authorityName: "Italian Ministry of Transport", url: "https://www.mit.gov.it/", verifiedAt: "2025-10-05" },
+      { authorityName: "UK Government - Driving in the EU", url: "https://www.gov.uk/guidance/driving-in-the-eu", verifiedAt: "2026-06-30" },
+      { authorityName: "Italian Ministry of Transport", url: "https://www.mit.gov.it/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-05",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "GB",
@@ -482,9 +484,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Some states require IDP alongside foreign license",
     ],
     sources: [
-      { authorityName: "US State Department", url: "https://travel.state.gov/", verifiedAt: "2025-09-20" },
+      { authorityName: "US State Department", url: "https://travel.state.gov/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-09-20",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "CA",
@@ -503,9 +505,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Insurance required for any vehicle you drive",
     ],
     sources: [
-      { authorityName: "UK Government - DVLA", url: "https://www.gov.uk/driving-in-the-uk", verifiedAt: "2025-10-01" },
+      { authorityName: "UK Government - Driving in the UK", url: "https://www.gov.uk/driving-abroad", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "CA",
@@ -525,9 +527,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Toll roads (cuotas) are common",
     ],
     sources: [
-      { authorityName: "Government of Canada - Travel", url: "https://travel.gc.ca/", verifiedAt: "2025-09-10" },
+      { authorityName: "Government of Canada - Travel", url: "https://travel.gc.ca/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-09-10",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "DE",
@@ -549,9 +551,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Headlight beam deflectors may be needed",
     ],
     sources: [
-      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2025-10-01" },
+      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "DE",
@@ -571,9 +573,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Toll roads on major highways",
     ],
     sources: [
-      { authorityName: "DGT - Spanish Traffic Authority", url: "https://www.dgt.es/", verifiedAt: "2025-10-01" },
+      { authorityName: "DGT - Spanish Traffic Authority", url: "https://www.dgt.es/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "FR",
@@ -594,9 +596,9 @@ const rawDrivingRules: DrivingRule[] = [
       "No general speed limit on some Autobahn sections",
     ],
     sources: [
-      { authorityName: "German Federal Ministry of Transport", url: "https://www.bmvi.de/", verifiedAt: "2025-10-01" },
+      { authorityName: "German Federal Ministry of Transport", url: "https://www.bmvi.de/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "AU",
@@ -615,9 +617,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Insurance required for any vehicle",
     ],
     sources: [
-      { authorityName: "UK Government - DVLA", url: "https://www.gov.uk/driving-in-the-uk", verifiedAt: "2025-10-01" },
+      { authorityName: "UK Government - Driving in the UK", url: "https://www.gov.uk/driving-abroad", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-01",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "IT",
@@ -637,11 +639,11 @@ const rawDrivingRules: DrivingRule[] = [
       "Toll roads (péage) are common",
     ],
     sources: [
-      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2025-10-01" },
+      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2025-10-01",
+    lastUpdated: "2026-06-30",
   },
-  // Expanded high-traffic routes (draft — pending human verification)
+  // Expanded high-traffic routes
   {
     originCountry: "US",
     destinationCountry: "PT",
@@ -660,10 +662,10 @@ const rawDrivingRules: DrivingRule[] = [
       "Toll roads (Portagens) are common",
     ],
     sources: [
-      { authorityName: "U.S. Embassy in Portugal", url: "https://pt.usembassy.gov/", verifiedAt: "2026-06-26" },
-      { authorityName: "Portuguese Mobility Authority (IMT)", url: "https://www.imt-ip.pt/", verifiedAt: "2026-06-26" },
+      { authorityName: "U.S. Embassy in Portugal", url: "https://pt.usembassy.gov/", verifiedAt: "2026-06-30" },
+      { authorityName: "Portuguese Mobility Authority (IMT)", url: "https://www.imt-ip.pt/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -683,9 +685,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Parking restrictions are strict in Athens and islands",
     ],
     sources: [
-      { authorityName: "U.S. Embassy in Greece", url: "https://gr.usembassy.gov/", verifiedAt: "2026-06-26" },
+      { authorityName: "U.S. Embassy in Greece", url: "https://gr.usembassy.gov/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -705,10 +707,10 @@ const rawDrivingRules: DrivingRule[] = [
       "Environmental zones may apply in some cities",
     ],
     sources: [
-      { authorityName: "Government of the Netherlands", url: "https://www.government.nl/", verifiedAt: "2026-06-26" },
-      { authorityName: "RDW (Dutch Vehicle Authority)", url: "https://www.rdw.nl/", verifiedAt: "2026-06-26" },
+      { authorityName: "Government of the Netherlands", url: "https://www.government.nl/", verifiedAt: "2026-06-30" },
+      { authorityName: "RDW (Dutch Vehicle Authority)", url: "https://www.rdw.nl/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -729,9 +731,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Winter tire requirements in mountain regions",
     ],
     sources: [
-      { authorityName: "Swiss Federal Roads Office (FEDRO)", url: "https://www.astra.admin.ch/", verifiedAt: "2026-06-26" },
+      { authorityName: "Swiss Federal Roads Office (FEDRO)", url: "https://www.astra.admin.ch/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -751,9 +753,9 @@ const rawDrivingRules: DrivingRule[] = [
       "Narrow rural roads — drive carefully",
     ],
     sources: [
-      { authorityName: "National Driver Licence Service (Ireland)", url: "https://www.ndls.ie/", verifiedAt: "2026-06-26" },
+      { authorityName: "National Driver Licence Service (Ireland)", url: "https://www.ndls.ie/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -773,10 +775,10 @@ const rawDrivingRules: DrivingRule[] = [
       "Rural roads can be narrow and winding",
     ],
     sources: [
-      { authorityName: "NZ Transport Agency (Waka Kotahi)", url: "https://www.nzta.govt.nz/", verifiedAt: "2026-06-26" },
-      { authorityName: "U.S. State Department - New Zealand", url: "https://travel.state.gov/", verifiedAt: "2026-06-26" },
+      { authorityName: "NZ Transport Agency (Waka Kotahi)", url: "https://www.nzta.govt.nz/", verifiedAt: "2026-06-30" },
+      { authorityName: "U.S. State Department - New Zealand", url: "https://travel.state.gov/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -796,10 +798,10 @@ const rawDrivingRules: DrivingRule[] = [
       "Strict DUI laws with severe penalties",
     ],
     sources: [
-      { authorityName: "Korean Road Traffic Authority (KoROAD)", url: "https://www.koroad.or.kr/", verifiedAt: "2026-06-26" },
-      { authorityName: "U.S. Embassy in South Korea", url: "https://kr.usembassy.gov/", verifiedAt: "2026-06-26" },
+      { authorityName: "Korean Road Traffic Authority (KoROAD)", url: "https://www.koroad.or.kr/", verifiedAt: "2026-06-30" },
+      { authorityName: "U.S. Embassy in South Korea", url: "https://kr.usembassy.gov/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "US",
@@ -819,10 +821,10 @@ const rawDrivingRules: DrivingRule[] = [
       "Traffic can be chaotic in Bangkok",
     ],
     sources: [
-      { authorityName: "U.S. Embassy in Thailand", url: "https://th.usembassy.gov/", verifiedAt: "2026-06-26" },
-      { authorityName: "Royal Thai Police", url: "https://www.royalthaipolice.go.th/", verifiedAt: "2026-06-26" },
+      { authorityName: "U.S. Embassy in Thailand", url: "https://th.usembassy.gov/", verifiedAt: "2026-06-30" },
+      { authorityName: "Royal Thai Police", url: "https://www.royalthaipolice.go.th/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "GB",
@@ -833,19 +835,18 @@ const rawDrivingRules: DrivingRule[] = [
     documents: [
       { type: "Valid UK Driver's License", required: true },
       { type: "Passport", required: true },
-      { type: "International Driving Permit (IDP)", required: true, notes: "Required for UK license holders since Brexit" },
-      { type: "GB Sticker", required: true },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Not required for standard UK plastic licences visiting the EU" },
+      { type: "UK Sticker", required: true, notes: "Required unless your plate already shows UK with the Union flag" },
     ],
     notes: [
       "Drive on the right side of the road",
-      "IDP required for UK license holders visiting EU",
       "Watch for cyclists — Netherlands is bike-heavy",
     ],
     sources: [
-      { authorityName: "RDW (Dutch Vehicle Authority)", url: "https://www.rdw.nl/", verifiedAt: "2026-06-26" },
-      { authorityName: "UK Government - Driving Abroad", url: "https://www.gov.uk/driving-abroad", verifiedAt: "2026-06-26" },
+      { authorityName: "UK Government - Driving in the EU", url: "https://www.gov.uk/guidance/driving-in-the-eu", verifiedAt: "2026-06-30" },
+      { authorityName: "RDW (Dutch Vehicle Authority)", url: "https://www.rdw.nl/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "GB",
@@ -856,20 +857,19 @@ const rawDrivingRules: DrivingRule[] = [
     documents: [
       { type: "Valid UK Driver's License", required: true },
       { type: "Passport", required: true },
-      { type: "International Driving Permit (IDP)", required: true },
-      { type: "GB Sticker", required: true },
+      { type: "International Driving Permit (IDP)", required: false, notes: "Not required for standard UK plastic licences visiting the EU" },
+      { type: "UK Sticker", required: true, notes: "Required unless your plate already shows UK with the Union flag" },
       { type: "Proof of Insurance", required: true },
     ],
     notes: [
       "Drive on the right side of the road",
-      "IDP required for UK license holders visiting EU",
       "Toll roads common on highways",
     ],
     sources: [
-      { authorityName: "Portuguese Mobility Authority (IMT)", url: "https://www.imt-ip.pt/", verifiedAt: "2026-06-26" },
-      { authorityName: "UK Government - Driving Abroad", url: "https://www.gov.uk/driving-abroad", verifiedAt: "2026-06-26" },
+      { authorityName: "UK Government - Driving in the EU", url: "https://www.gov.uk/guidance/driving-in-the-eu", verifiedAt: "2026-06-30" },
+      { authorityName: "Portuguese Mobility Authority (IMT)", url: "https://www.imt-ip.pt/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "CA",
@@ -891,10 +891,10 @@ const rawDrivingRules: DrivingRule[] = [
       "Canadian license accepted for short tourist stays",
     ],
     sources: [
-      { authorityName: "Government of Canada - Travel", url: "https://travel.gc.ca/", verifiedAt: "2026-06-26" },
-      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2026-06-26" },
+      { authorityName: "Government of Canada - Travel", url: "https://travel.gc.ca/", verifiedAt: "2026-06-30" },
+      { authorityName: "French Government - Service-Public.fr", url: "https://www.service-public.fr/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
   {
     originCountry: "AU",
@@ -914,10 +914,10 @@ const rawDrivingRules: DrivingRule[] = [
       "Rural and mountain roads require caution",
     ],
     sources: [
-      { authorityName: "NZ Transport Agency (Waka Kotahi)", url: "https://www.nzta.govt.nz/", verifiedAt: "2026-06-26" },
-      { authorityName: "Australian Government - Smartraveller", url: "https://www.smartraveller.gov.au/", verifiedAt: "2026-06-26" },
+      { authorityName: "NZ Transport Agency (Waka Kotahi)", url: "https://www.nzta.govt.nz/", verifiedAt: "2026-06-30" },
+      { authorityName: "Australian Government - Smartraveller", url: "https://www.smartraveller.gov.au/", verifiedAt: "2026-06-30" },
     ],
-    lastUpdated: "2026-06-26",
+    lastUpdated: "2026-06-30",
   },
 ]
 

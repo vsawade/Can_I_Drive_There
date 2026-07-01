@@ -1,5 +1,5 @@
 import { getStorageBackend } from "@/lib/supabase/server"
-import type { AnalyticsEvent, ReportStatus, StoredReport } from "@/lib/types"
+import type { AnalyticsEvent, ReportStatus, StoredReport, StoredTripReminder } from "@/lib/types"
 import * as fileStore from "./file-store"
 import * as supabaseStore from "./supabase-store"
 
@@ -43,10 +43,30 @@ export async function saveTripReminder(input: {
   originCountry: string
   destinationCountry: string
   tripDate: string
+  reminderDate: string
   stayLength: number
   travelType: string
-}): Promise<void> {
+}): Promise<StoredTripReminder> {
   return store().saveTripReminder(input)
+}
+
+export async function listDueTripReminders(
+  today: string,
+  limit = 50
+): Promise<StoredTripReminder[]> {
+  return store().listDueTripReminders(today, limit)
+}
+
+export async function markTripReminderSent(
+  id: string,
+  sentAt: string,
+  lastError?: string | null
+): Promise<void> {
+  return store().markTripReminderSent(id, sentAt, lastError)
+}
+
+export async function markTripReminderFailed(id: string, lastError: string): Promise<void> {
+  return store().markTripReminderFailed(id, lastError)
 }
 
 export async function getReportCounts(): Promise<Record<ReportStatus, number>> {
